@@ -2,17 +2,19 @@ package com.mycompany.invoice.service;
 
 import com.mycompany.invoice.entity.Invoice;
 import com.mycompany.invoice.repository.InvoiceRepositoryInterface;
+import org.springframework.beans.factory.annotation.Value;
 
 public class InvoiceServiceNumber implements InvoiceServiceInterface{
-    private static  long lasNumber = 0L;
+    @Value("124")
+    private   long lasNumber = 124L;
     private InvoiceRepositoryInterface invoiceRepository;
 
-    public static long getLasNumber() {
+    public long getLasNumber() {
         return lasNumber;
     }
 
-    public static void setLasNumber(long lasNumber) {
-        InvoiceServiceNumber.lasNumber = lasNumber;
+    public void setLasNumber(long lasNumber) {
+        this.lasNumber = lasNumber;
     }
 
     public InvoiceRepositoryInterface getInvoiceRepository() {

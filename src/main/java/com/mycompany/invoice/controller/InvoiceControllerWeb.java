@@ -4,9 +4,11 @@ import com.mycompany.invoice.entity.Invoice;
 import com.mycompany.invoice.repository.InvoiceRepositoryDatabase;
 import com.mycompany.invoice.service.InvoiceServiceInterface;
 import com.mycompany.invoice.service.InvoiceServicePrefix;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class InvoiceControllerWeb implements InvoiceControllerInterface {
 
+    @Autowired
     private InvoiceServiceInterface invoiceService;
 
     public InvoiceServiceInterface getInvoiceService() {
