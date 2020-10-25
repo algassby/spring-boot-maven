@@ -6,7 +6,7 @@ import com.mycompany.invoice.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class InvoiceServiceNumber implements InvoiceServiceInterface {
     @Value("124")
     private   long lasNumber = 124L;
