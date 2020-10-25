@@ -23,19 +23,30 @@ public class App
     public static void main( String[] args )
     {
        // System.out.println( "what is the customer name?" );
-        System.out.println("Quel est le type de controller(keybord, web,douchette ?");
-
         Scanner scanner = new Scanner(System.in);
-        String controllerType  = scanner.nextLine();
+        System.out.println("Quelle est le chemin de la classe Controller ?");
 
-        System.out.println("Quel est le type de service(number, prefix ?");
-        String serviceType  = scanner.nextLine();
+        String controllerClass  = scanner.nextLine();
 
-        System.out.println("Quel est le type de repository(memory, database ?");
-        String repositoryType  = scanner.nextLine();
+        System.out.println("Quelle est le chemin de la classe service?");
+        String serviceClass  = scanner.nextLine();
+
+        System.out.println("Quelle est le chemin de la classe Repository?");
+        String repositoryClass  = scanner.nextLine();
 
         InvoiceControllerInterface invoiceController = null;
-        switch(controllerType){
+        InvoiceServiceInterface invoiceService = null;
+        InvoiceRepositoryInterface invoiceRepository = null;
+
+        try{
+            invoiceController = (InvoiceControllerInterface) Class.forName(controllerClass).getDeclaredConstructor().newInstance();
+            invoiceService = (InvoiceServiceInterface) Class.forName(serviceClass).getDeclaredConstructor().newInstance();
+            invoiceRepository = (InvoiceRepositoryInterface) Class.forName(repositoryClass).getDeclaredConstructor().newInstance();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+       /* switch(controllerType){
             case "keybord":
                 invoiceController = new InvoiceControllerKeyboard();
             break;
@@ -63,6 +74,8 @@ public class App
             case "database":
                 invoiceRepository = new InvoiceRepositoryDatabase();
         }
+        */
+
 
         invoiceController.setInvoiceService(invoiceService);
         invoiceService.setInvoiceRepository(invoiceRepository);
