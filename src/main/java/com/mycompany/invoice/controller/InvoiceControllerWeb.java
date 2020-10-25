@@ -19,8 +19,6 @@ public class InvoiceControllerWeb implements InvoiceControllerInterface {
 
     @Override
     public void createInvoice() {
-
-            System.out.println( "what is the customer name?" );
             //Scanner scanner = new Scanner(System.in);
             Invoice invoice = new  Invoice();
             invoice.setCustomerName("Tesla");
@@ -36,7 +34,7 @@ public class InvoiceControllerWeb implements InvoiceControllerInterface {
     public static void main(String []args){
         InvoiceControllerInterface invoiceController = new InvoiceControllerWeb();
         InvoiceServiceInterface invoiceService = new InvoiceServicePrefix();
-       // invoiceService.setInvoiceRepository(new InvoiceRepositoryDatabase());
+        invoiceService.setInvoiceRepository(new InvoiceRepositoryDatabase());
         invoiceController.setInvoiceService(invoiceService);
         invoiceController.createInvoice();
         System.out.println(invoiceController.toString());

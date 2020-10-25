@@ -17,7 +17,6 @@ public class InvoiceControllerKeyboard implements InvoiceControllerInterface{
 
     public void createInvoice(){
 
-        System.out.println( "what is the customer name?" );
         //Scanner scanner = new Scanner(System.in);
         String customerName = "SpaceX";
         Invoice invoice = new  Invoice();

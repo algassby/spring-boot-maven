@@ -5,15 +5,26 @@ import com.mycompany.invoice.repository.InvoiceRepositoryDatabase;
 import com.mycompany.invoice.repository.InvoiceRepositoryInterface;
 
 public class InvoiceServicePrefix implements InvoiceServiceInterface{
-    private static  long lasNumber = 112L;
+    private   long lasNumber = 112L;
+    private String prefix;
+
+
     private InvoiceRepositoryInterface invoiceRepository;
 
-    public static long getLasNumber() {
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public long getLasNumber() {
         return lasNumber;
     }
 
-    public static void setLasNumber(long lasNumber) {
-        InvoiceServicePrefix.lasNumber = lasNumber;
+    public void setLasNumber(long lasNumber) {
+        this.lasNumber = lasNumber;
     }
 
     public InvoiceRepositoryInterface getInvoiceRepository() {
@@ -26,7 +37,7 @@ public class InvoiceServicePrefix implements InvoiceServiceInterface{
 
     @Override
     public void create(Invoice invoice) {
-        invoice.setNumber(String.valueOf("IN_"+(++lasNumber)));
+        invoice.setNumber(String.valueOf(prefix+(++lasNumber)));
         invoiceRepository.create(invoice);
     }
 
