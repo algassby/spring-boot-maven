@@ -1,20 +1,8 @@
 package com.mycompany.invoice;
 
 import com.mycompany.invoice.controller.InvoiceControllerInterface;
-import com.mycompany.invoice.controller.InvoiceControllerKeyboard;
-import com.mycompany.invoice.controller.InvoiceControllerDouchette;
-import com.mycompany.invoice.controller.InvoiceControllerWeb;
-import com.mycompany.invoice.entity.Invoice;
-import com.mycompany.invoice.repository.InvoiceRepositoryInterface;
-import com.mycompany.invoice.repository.InvoiceRepositoryMemory;
-import com.mycompany.invoice.repository.InvoiceRepositoryDatabase;
-import com.mycompany.invoice.service.InvoiceServiceInterface;
-import com.mycompany.invoice.service.InvoiceServiceNumber;
-import com.mycompany.invoice.service.InvoiceServicePrefix;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.Scanner;
 
 /**
  * Hello world!

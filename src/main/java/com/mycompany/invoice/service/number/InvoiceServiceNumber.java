@@ -1,10 +1,13 @@
-package com.mycompany.invoice.service;
+package com.mycompany.invoice.service.number;
 
 import com.mycompany.invoice.entity.Invoice;
 import com.mycompany.invoice.repository.InvoiceRepositoryInterface;
+import com.mycompany.invoice.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-public class InvoiceServiceNumber implements InvoiceServiceInterface{
+@Service
+public class InvoiceServiceNumber implements InvoiceServiceInterface {
     @Value("124")
     private   long lasNumber = 124L;
     private InvoiceRepositoryInterface invoiceRepository;
