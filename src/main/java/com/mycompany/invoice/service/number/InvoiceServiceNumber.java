@@ -6,6 +6,8 @@ import com.mycompany.invoice.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 //@Service
 public class InvoiceServiceNumber implements InvoiceServiceInterface {
     @Value("124")
@@ -28,6 +30,10 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
         this.invoiceRepository = invoiceRepository;
     }
 
+    @Override
+    public List<Invoice> getInvoiceList() {
+        return invoiceRepository.list();
+    }
     @Override
     public void create(Invoice invoice) {
         invoice.setNumber(String.valueOf(++lasNumber));
