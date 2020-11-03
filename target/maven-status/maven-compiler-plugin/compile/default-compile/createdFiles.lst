@@ -1,0 +1,12 @@
+com\mycompany\invoice\core\controller\scan\InvoiceControllerDouchette.class
+com\mycompany\invoice\core\service\prefix\InvoiceServicePrefix.class
+com\mycompany\invoice\core\repository\InvoiceRepositoryInterface.class
+com\mycompany\invoice\core\service\InvoiceServiceInterface.class
+com\mycompany\invoice\AppConfig.class
+com\mycompany\invoice\core\controller\web\InvoiceControllerWeb.class
+com\mycompany\invoice\core\entity\Invoice.class
+com\mycompany\invoice\core\repository\database\InvoiceRepositoryDatabase.class
+com\mycompany\invoice\core\service\number\InvoiceServiceNumber.class
+com\mycompany\invoice\core\controller\InvoiceControllerInterface.class
+com\mycompany\invoice\core\controller\keyboard\InvoiceControllerKeyboard.class
+com\mycompany\invoice\core\repository\memory\InvoiceRepositoryMemory.class
