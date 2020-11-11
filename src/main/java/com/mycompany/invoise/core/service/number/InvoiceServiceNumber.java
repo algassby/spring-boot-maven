@@ -3,23 +3,18 @@ package com.mycompany.invoise.core.service.number;
 import com.mycompany.invoise.core.entity.Invoice;
 import com.mycompany.invoise.core.repository.InvoiceRepositoryInterface;
 import com.mycompany.invoise.core.service.InvoiceServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@Service
+@Service
 public class InvoiceServiceNumber implements InvoiceServiceInterface {
-    @Value("124")
-    private   long lasNumber = 124L;
+    //@Value("124")
+    //private   long lasNumber = 124L;
+    @Autowired
     private InvoiceRepositoryInterface invoiceRepository;
-
-    public long getLasNumber() {
-        return lasNumber;
-    }
-
-    public void setLasNumber(long lasNumber) {
-        this.lasNumber = lasNumber;
-    }
 
     public InvoiceRepositoryInterface getInvoiceRepository() {
         return invoiceRepository;
@@ -34,9 +29,8 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
         return invoiceRepository.list();
     }
     @Override
-    public void create(Invoice invoice) {
-        invoice.setNumber(String.valueOf(++lasNumber));
-        invoiceRepository.create(invoice);
+    public Invoice create(Invoice invoice) {
+      return   invoiceRepository.create(invoice);
     }
 
     @Override
