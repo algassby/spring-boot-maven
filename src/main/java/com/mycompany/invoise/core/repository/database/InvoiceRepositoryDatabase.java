@@ -1,5 +1,5 @@
 package com.mycompany.invoise.core.repository.database;
-import com.mycompany.invoise.core.entity.Invoice;
+/*import com.mycompany.invoise.core.entity.Invoice;
 import com.mycompany.invoise.core.repository.InvoiceRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -31,7 +31,8 @@ public class InvoiceRepositoryDatabase implements InvoiceRepositoryInterface {
         invoice.setNumber(kh.getKey().toString());
         return  invoice;
     }
-
+*/
+/*
     @Override
     public List<Invoice> list() {
         /*Invoice invoice1 = new Invoice();
@@ -42,6 +43,7 @@ public class InvoiceRepositoryDatabase implements InvoiceRepositoryInterface {
         invoice2.setNumber("NUM_2");
         invoice2.setCustomerName("La poste");
          */
+/*
         return jdbcTemplate.query("SELECT INVOICE_NUMBER, CUSTOMER_NAME FROM INVOICE", (rs, rowNum)->new Invoice(
                 String.valueOf(rs.getLong("INVOICE_NUMBER")), rs.getString("CUSTOMER_NAME")));
     }
@@ -58,3 +60,4 @@ public class InvoiceRepositoryDatabase implements InvoiceRepositoryInterface {
         System.out.println(invoiceRepositoryDatabase.list().toString());
     }
 }
+*/

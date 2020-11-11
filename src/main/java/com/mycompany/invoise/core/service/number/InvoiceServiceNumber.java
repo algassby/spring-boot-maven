@@ -4,10 +4,9 @@ import com.mycompany.invoise.core.entity.Invoice;
 import com.mycompany.invoise.core.repository.InvoiceRepositoryInterface;
 import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InvoiceServiceNumber implements InvoiceServiceInterface {
@@ -25,16 +24,16 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
     }
 
     @Override
-    public List<Invoice> getInvoiceList() {
-        return invoiceRepository.list();
+    public Iterable<Invoice> getInvoiceList() {
+        return invoiceRepository.findAll();
     }
     @Override
     public Invoice create(Invoice invoice) {
-      return   invoiceRepository.create(invoice);
+      return   invoiceRepository.save(invoice);
     }
 
     @Override
     public Invoice getInvoiceById(String number) {
-        return  invoiceRepository.getById(number);
+        return  invoiceRepository.findById(number).orElseThrow();
     }
 }
