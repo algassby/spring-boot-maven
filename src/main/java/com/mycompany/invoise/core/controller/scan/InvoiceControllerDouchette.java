@@ -1,6 +1,7 @@
 package com.mycompany.invoise.core.controller.scan;
 
 import com.mycompany.invoise.core.controller.InvoiceControllerInterface;
+import com.mycompany.invoise.core.entity.Customer;
 import com.mycompany.invoise.core.entity.Invoice;
 import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,10 @@ public class InvoiceControllerDouchette implements InvoiceControllerInterface {
     public String createInvoice(Invoice invoice) {
 
         //Scanner scanner = new Scanner(System.in);
-        String customerName = "Virgini Galactic";
+        //String customerName = "Virgini Galactic";
         invoice = new  Invoice();
-        invoice.setCustomerName(customerName);
+        Customer customer = new Customer("Virgini Galactic");
+        invoice.setCustomer(customer);
         invoiceService.create(invoice);
         return  null;
     }
