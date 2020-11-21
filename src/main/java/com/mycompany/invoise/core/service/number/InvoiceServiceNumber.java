@@ -1,7 +1,7 @@
 package com.mycompany.invoise.core.service.number;
 
+
 import com.mycompany.invoise.core.entity.invoice.Invoice;
-import com.mycompany.invoise.core.repository.CustomerRepositoryInterface;
 import com.mycompany.invoise.core.repository.InvoiceRepositoryInterface;
 import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,15 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
     //private   long lasNumber = 124L;
     @Autowired
     private InvoiceRepositoryInterface invoiceRepository;
-    @Autowired
-    private CustomerRepositoryInterface customerRepositoryInterface;
+   // @Autowired
+    //private CustomerRepositoryInterface customerRepositoryInterface;
+
 
     public InvoiceRepositoryInterface getInvoiceRepository() {
         return invoiceRepository;
     }
 
+    @Override
     public void setInvoiceRepository(InvoiceRepositoryInterface invoiceRepository) {
         this.invoiceRepository = invoiceRepository;
     }
@@ -33,9 +35,9 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
        return invoiceRepository.findAll();
     }
     @Override
-    @Transactional
+    //@Transactional
     public Invoice create(Invoice invoice) {
-      customerRepositoryInterface.save(invoice.getCustomer());
+      //customerRepositoryInterface.save(invoice.getCustomer());
         return   invoiceRepository.save(invoice);
     }
 
@@ -43,4 +45,6 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
     public Invoice getInvoiceById(String number) {
         return  invoiceRepository.findById(number).orElseThrow();
     }
+
+
 }

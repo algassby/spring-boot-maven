@@ -5,8 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface InvoiceRepositoryInterface extends CrudRepository<Invoice, String> {
 //@Query("SELECT  invoice  from  Invoice invoice inner join fetch invoice.customer")
- @EntityGraph(value = "invoise.customer", type = EntityGraph.EntityGraphType.FETCH)
- Iterable<Invoice> findAll();
+ //@EntityGraph(value = "invoise.customer", type = EntityGraph.EntityGraphType.FETCH)
+ //Iterable<Invoice> findAll();
    /* public Invoice create(Invoice invoice);
     public List<Invoice> list();
     public Invoice getById(String number);
