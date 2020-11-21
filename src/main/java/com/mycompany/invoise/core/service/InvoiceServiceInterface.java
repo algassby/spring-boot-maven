@@ -1,8 +1,6 @@
 package com.mycompany.invoise.core.service;
-import com.mycompany.invoise.core.entity.Invoice;
+import com.mycompany.invoise.core.entity.invoice.Invoice;
 import com.mycompany.invoise.core.repository.InvoiceRepositoryInterface;
-
-import java.util.Optional;
 
 public interface InvoiceServiceInterface {
     public Invoice create(Invoice invoice);

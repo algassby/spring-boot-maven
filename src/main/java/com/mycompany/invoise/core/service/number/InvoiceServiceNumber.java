@@ -1,14 +1,12 @@
 package com.mycompany.invoise.core.service.number;
 
-import com.mycompany.invoise.core.entity.Customer;
-import com.mycompany.invoise.core.entity.Invoice;
+import com.mycompany.invoise.core.entity.invoice.Invoice;
 import com.mycompany.invoise.core.repository.CustomerRepositoryInterface;
 import com.mycompany.invoise.core.repository.InvoiceRepositoryInterface;
 import com.mycompany.invoise.core.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class InvoiceServiceNumber implements InvoiceServiceInterface {
@@ -35,6 +33,7 @@ public class InvoiceServiceNumber implements InvoiceServiceInterface {
        return invoiceRepository.findAll();
     }
     @Override
+    @Transactional
     public Invoice create(Invoice invoice) {
       customerRepositoryInterface.save(invoice.getCustomer());
         return   invoiceRepository.save(invoice);
